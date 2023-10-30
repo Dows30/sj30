@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #000; /* Dark background to simulate the night sky */
+    position: relative;
+    overflow: hidden; /* Hide overflow to prevent scrollbars */
+}
+.container {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    position: relative;
+}
+
+.petal {
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, #FFD700, transparent);
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    animation: glow 2s ease-in-out infinite;
+}
+
+.one {
+    transform: rotate(170deg);
+}
+
+.two {
+    transform: rotate(270deg);
+}
+
+.three {
+    transform: rotate(90deg);
+}
+
+.circle {
+    height: 75px;
+    width: 75px;
+    background: radial-gradient(#000, #422100);
+    border-radius: 50%;
+    position: absolute;
+    left: calc(50% - 37.5px);
+    top: calc(50% - 37.5px);
+    animation: circle-glow 2s ease-in-out infinite;
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px rgba(255, 215, 0, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(255, 215, 0, 0.7);
+    }
+}
+
+@keyframes circle-glow {
+    0% {
+        box-shadow: 0 0 5px #422100, 0 0 10px #422100, 0 0 15px #422100;
+    }
+    50% {
+        box-shadow: 0 0 10px #422100, 0 0 20px #422100, 0 0 30px #422100;
+    }
+    100% {
+        box-shadow: 0 0 5px #422100, 0 0 10px #422100, 0 0 15px #422100;
+    }
+}
+
+/* Your existing CSS styles here */
+
+.typing-text-container {
+    text-align: center;
+    position: absolute;
+    top: 28%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.typing-text {
+    font-size: 18px;
+    font-family: Arial, sans-serif;
+    color: #FFFFFF; /* Text color */
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid #FFFFFF; /* Cursor effect */
+    animation: typing 3s steps(40, end) infinite, cursor 1s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes cursor {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: #FFFFFF;
+    }
+}
